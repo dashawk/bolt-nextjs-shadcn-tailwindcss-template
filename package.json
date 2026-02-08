@@ -1,13 +1,13 @@
 {
   "name": "bolt-nextjs-template",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "clean": "node -e \"const{execSync}=require('child_process');const os=require('os');[3000,3001,3002,3003,3004,3005].forEach(p=>{try{if(os.platform()==='win32'){const r=execSync('netstat -ano -p tcp',{encoding:'utf8'});r.split('\\n').filter(l=>l.includes(':'+p+' ')&&l.includes('LISTENING')).forEach(l=>{const pid=l.trim().split(/\\s+/).pop();if(pid&&pid!=='0'){try{execSync('taskkill /F /PID '+pid,{stdio:'ignore'});console.log('Killed PID '+pid+' on port '+p)}catch{}}});}else{try{const pid=execSync('lsof -ti:'+p,{encoding:'utf8'}).trim();if(pid){execSync('kill -9 '+pid);console.log('Killed PID '+pid+' on port '+p)}}catch{}}}catch{}});const fs=require('fs');const path=require('path');function rm(d){if(fs.existsSync(d)){fs.rmSync(d,{recursive:true,force:true});console.log('Cleared '+d)}}rm('.next');console.log('Done')\""
+    "clean": "node scripts/clean.js"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",
