@@ -87,6 +87,9 @@ web_modules/
 .next
 out
 
+# Next.js auto-generated type declarations
+next-env.d.ts
+
 # Nuxt.js build / generate output
 .nuxt
 dist
